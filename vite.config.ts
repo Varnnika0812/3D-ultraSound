@@ -6,7 +6,7 @@
 
   export default defineConfig({
    
-     base: '/3D-ultraSound/',
+     base: './',
       plugins: [react()],
      
     resolve: {
