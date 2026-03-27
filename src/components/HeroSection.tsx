@@ -45,16 +45,16 @@ const topics: Topic[] = [
     bgWord: 'IMAGING',
     centerImage: centerImage1
   },
-  {
-    id: 'history',
-    title: 'History',
-    subtitle: 'Evolution',
-    description: 'Trace the remarkable journey from experimental technology in the 1980s to today\'s sophisticated systems. Experience how innovation transformed medical imaging into an essential diagnostic tool.',
-    image: 'src/assets/4.1.gif',
-    color: '#8b5cf6',
-    bgWord: 'EVOLUTION',
-    centerImage: 'src/assets/4.png',
-  },
+  // {
+  //   id: 'history',
+  //   title: 'History',
+  //   subtitle: 'Evolution',
+  //   description: 'Trace the remarkable journey from experimental technology in the 1980s to today\'s sophisticated systems. Experience how innovation transformed medical imaging into an essential diagnostic tool.',
+  //   image: 'src/assets/4.1.gif',
+  //   color: '#8b5cf6',
+  //   bgWord: 'EVOLUTION',
+  //   centerImage: 'src/assets/4.png',
+  // },
   {
     id: 'working-mechanism',
     title: 'Technology',
@@ -64,37 +64,37 @@ const topics: Topic[] = [
     color: '#ec4899',
     bgWord: 'TECHNOLOGY',
     centerImage: newUltrasoundMachine
-  },
-  {
-    id: 'Instrumentation',
-    title: 'Instrumentation',
-    subtitle: 'Instrumentation',
-    description: 'Discover state-of-the-art components in our modern ultrasound systems. From high-frequency transducers to powerful processors, every element combines to deliver exceptional imaging quality.',
-    image: 'src/assets/3.gif',
-    color: '#06b6d4',
-    bgWord: 'INSTRUMENTATION',
-    centerImage: 'src/assets/3.3.png',
-  },
-  {
-    id: 'Advantages',
-    title: 'Advantages',
-    subtitle: 'Advantages',
-    description: 'Experience enhanced visualization and improved diagnostic accuracy with our imaging solutions. Superior patient communication and intuitive 3D representations make complex diagnoses simple and effective.',
-    image: 'src/assets/5.1.gif',
-    color: '#10b981',
-    bgWord: 'ADVANTAGES',
-    centerImage: 'src/assets/5.png',
-  },
-  {
-    id: 'disadvantages',
-    title: 'disadvantages',
-    subtitle: 'Disadvantages',
-    description: 'Understanding limitations ensures optimal clinical application. Learn about technical considerations, investment factors, and training requirements to make informed decisions for your practice.',
-    image: 'src/assets/2.gif',
-    color: '#f59e0b',
-    bgWord: 'DISADVANTAGES',
-    centerImage: 'src/assets/1.png',
   }
+  // {
+  //   id: 'Instrumentation',
+  //   title: 'Instrumentation',
+  //   subtitle: 'Instrumentation',
+  //   description: 'Discover state-of-the-art components in our modern ultrasound systems. From high-frequency transducers to powerful processors, every element combines to deliver exceptional imaging quality.',
+  //   image: 'src/assets/3.gif',
+  //   color: '#06b6d4',
+  //   bgWord: 'INSTRUMENTATION',
+  //   centerImage: 'src/assets/3.3.png',
+  // },
+  // {
+  //   id: 'Advantages',
+  //   title: 'Advantages',
+  //   subtitle: 'Advantages',
+  //   description: 'Experience enhanced visualization and improved diagnostic accuracy with our imaging solutions. Superior patient communication and intuitive 3D representations make complex diagnoses simple and effective.',
+  //   image: 'src/assets/5.1.gif',
+  //   color: '#10b981',
+  //   bgWord: 'ADVANTAGES',
+  //   centerImage: 'src/assets/5.png',
+  // },
+  // {
+  //   id: 'disadvantages',
+  //   title: 'disadvantages',
+  //   subtitle: 'Disadvantages',
+  //   description: 'Understanding limitations ensures optimal clinical application. Learn about technical considerations, investment factors, and training requirements to make informed decisions for your practice.',
+  //   image: 'src/assets/2.gif',
+  //   color: '#f59e0b',
+  //   bgWord: 'DISADVANTAGES',
+  //   centerImage: 'src/assets/1.png',
+  // }
 ];
 
 const applications = [
@@ -103,13 +103,13 @@ const applications = [
   { name: 'Oncology', color: '#06b6d4' }
 ];
 
-// Floating element positions
+
 const floatingElements = [
-  { x: '80%', y: '20%', size: 120, delay: 0 },  // right top
-  { x: '75%', y: '15%', size: 100, delay: 0.5 }, // right top area
-  { x: '10%', y: '70%', size: 90, delay: 1 },   // left bottom
-  { x: '15%', y: '65%', size: 110, delay: 1.5 }, // left bottom area
-  { x: '50%', y: '10%', size: 80, delay: 2 },    // center top
+  { x: '80%', y: '20%', size: 120, delay: 0 },  
+  { x: '75%', y: '15%', size: 100, delay: 0.5 }, 
+  { x: '10%', y: '70%', size: 90, delay: 1 },   
+  { x: '15%', y: '65%', size: 110, delay: 1.5 }, 
+  { x: '50%', y: '10%', size: 80, delay: 2 },    
 ];
 
 
@@ -121,11 +121,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
   
   const currentTopic = topics[currentIndex];
 
-  // Detect scroll to show scroll button near page end
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      // Show only when scrolled past 70% to indicate nearing page end
       setShowScroll(scrollPercentage > 70 && scrollPercentage < 98);
     };
     
@@ -153,7 +152,6 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
     setSelectedApp(index);
     triggerConfetti();
     
-    // Reappear the ball after 10 seconds
     setTimeout(() => {
       setSelectedApp(null);
     }, 1000);
@@ -163,14 +161,13 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
     const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2', '#FF1493', '#00CED1'];
     const newConfetti: Confetti[] = [];
     
-    // Create 50 firework particles for nighttime effect
     for (let i = 0; i < 50; i++) {
       const angle = (Math.PI * 2 * i) / 50;
       const velocity = 200 + Math.random() * 200;
       newConfetti.push({
         id: Date.now() + i,
         x: Math.cos(angle) * velocity,
-        y: Math.sin(angle) * velocity - Math.random() * 100, // Upward bias
+        y: Math.sin(angle) * velocity - Math.random() * 100, 
         color: colors[Math.floor(Math.random() * colors.length)],
         rotation: Math.random() * 720,
         scale: Math.random() * 0.8 + 0.6
@@ -179,7 +176,6 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
     
     setConfetti(newConfetti);
     
-    // Clear confetti after animation
     setTimeout(() => {
       setConfetti([]);
     }, 3000);
@@ -509,7 +505,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
                             duration: 3,
                             ease: "easeOut",
                             times: [0, 0.1, 0.4, 0.7, 1],
-                            delay: i * 0.005, // Stagger effect
+                            delay: i * 0.005, 
                           }}
                         >
                           {/* Trailing spark effect */}
